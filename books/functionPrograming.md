@@ -38,6 +38,20 @@ console.log(curry(2)(3)) // 5
 ### 自动柯里化
 （待补充）
 
+### Point-Free Style
+> 定义函数的时候，不显式定义函数参数
+
+```js
+const map = fn => list => list.map(fn)
+const add = a => b => a + b
+
+// Point-Free Style
+const incrementAll = map(add(1))
+
+// Not Point-Free
+const incrementAll = numbers => map(add(1))(numbers)
+```
+
 ## 函数组合 Function Composition
 > 把两个函数放在一起，形成第三个函数，一个函数输入为另一个函数输出
 ```js
@@ -59,5 +73,3 @@ console.log(floorAndToString('12.12')) // '12'
 ```js
 f(f(x)) = f(x)
 ``` 
-
-
